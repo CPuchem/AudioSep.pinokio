@@ -9,7 +9,8 @@ module.exports = {
     let running = {
       install: info.running("install.json"),
       start: info.running("start.json"),
-      update: info.running("update.json")
+      update: info.running("update.json"),
+      reset: info.running("reset.js")
     }
     if (running.install) {
       return [{
@@ -47,6 +48,13 @@ module.exports = {
           text: "Updating",
           href: "update.json",
         }]
+      } else if (running.reset) {
+        return [{
+          default: true,
+          icon: 'fa-solid fa-terminal',
+          text: "Resetting",
+          href: "reset.js",
+        }]
       } else {
         return [{
           default: true,
@@ -57,6 +65,10 @@ module.exports = {
           icon: "fa-solid fa-plug",
           text: "Update",
           href: "update.json",
+        }, {
+          icon: "fa-solid fa-rotate-left",
+          text: "Reset",
+          href: "reset.js",
         }, {
           icon: "fa-solid fa-plug",
           text: "Install",
